@@ -1,4 +1,4 @@
-import { education, certifications } from "../data/portfolio";
+import { education } from "../data/portfolio";
 import styles from "./EducationSection.module.css";
 
 export default function EducationSection() {
