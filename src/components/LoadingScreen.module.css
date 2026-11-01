@@ -1,0 +1,227 @@
+.loadingScreen {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  padding: 0 24px;
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size);
+  animation: fadeIn 0.35s ease-out both;
+}
+
+.frame {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  max-width: var(--container-width);
+  min-height: 100%;
+  margin: 0 auto;
+  padding: 30px 0 28px;
+}
+
+.header,
+.progressMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header {
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--divider);
+}
+
+.brand {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.headerNote,
+.eyebrow,
+.progressMeta,
+.footerNote {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  flex: 1;
+  padding: 72px 0;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+  color: var(--text-muted-light);
+  animation: riseIn 0.65s 0.1s both;
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent-glow);
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-width: 900px;
+  font-family: var(--font-sans);
+  font-size: clamp(42px, 8vw, 88px);
+  font-weight: 700;
+  letter-spacing: -0.065em;
+  line-height: 1.03;
+  animation: riseIn 0.75s 0.2s both;
+}
+
+.greeting {
+  color: var(--text-primary);
+}
+
+.question {
+  color: var(--accent);
+}
+
+.footer {
+  width: 100%;
+  max-width: 520px;
+  padding-top: 16px;
+  border-top: 1px solid var(--divider);
+}
+
+.progressMeta {
+  margin-bottom: 10px;
+  color: var(--text-muted-light);
+}
+
+.progressTrack {
+  width: 100%;
+  height: 2px;
+  overflow: hidden;
+  background: var(--divider);
+  margin-bottom: 14px;
+}
+
+.progressFill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: loadProgress 1.4s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+.footerNote {
+  display: block;
+  text-align: right;
+}
+
+.leaving {
+  pointer-events: none;
+  animation: fadeOut 0.5s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes loadProgress {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loadingScreen,
+  .leaving {
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+  }
+
+  .eyebrow,
+  .message,
+  .progressFill {
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .loadingScreen {
+    padding: 0 18px;
+  }
+
+  .frame {
+    padding: 22px 0;
+  }
+
+  .headerNote,
+  .eyebrow,
+  .progressMeta,
+  .footerNote {
+    font-size: 9px;
+  }
+
+  .main {
+    padding: 48px 0;
+  }
+
+  .eyebrow {
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  .message {
+    font-size: clamp(40px, 11vw, 64px);
+  }
+
+  .footer {
+    max-width: 100%;
+  }
+}
