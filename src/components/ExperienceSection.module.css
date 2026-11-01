@@ -1,0 +1,232 @@
+.section {
+  padding-bottom: var(--section-spacing);
+}
+
+/* ── Section Header ── */
+.sectionHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-bottom: 12px;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+
+.sectionNum {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.sectionTitle {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--text-primary);
+}
+
+.headerRight {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.sectionLine {
+  width: 100%;
+  height: 1px;
+  background-color: var(--divider);
+  margin-bottom: 36px;
+}
+
+/* ── Entries ── */
+.entriesList {
+  display: flex;
+  flex-direction: column;
+}
+
+.entry {
+  display: flex;
+  gap: var(--col-gap);
+  align-items: flex-start;
+}
+
+.leftCol {
+  width: var(--col-left);
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dates {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-muted-light);
+}
+
+.location {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.companyBadge {
+  display: inline-block;
+  width: fit-content;
+  margin-top: 4px;
+  padding: 1px 7px;
+  background: var(--surface);
+  border: 1px solid var(--border-box);
+  border-radius: 3px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted-light);
+}
+
+.rightCol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.titleRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.roleTitle {
+  font-family: var(--font-sans);
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.roleType {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* ── Metrics Box (4 cells) ── */
+.metricsBox {
+  display: flex;
+  width: fit-content;
+  max-width: 100%;
+  border: 1px solid var(--border-box);
+  background: var(--surface-box);
+  border-radius: 4px;
+  margin-bottom: 22px;
+  overflow: hidden;
+}
+
+.metricCell {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 8px 16px;
+  border-right: 1px solid var(--border-box);
+}
+
+.metricCell:last-child {
+  border-right: none;
+}
+
+.metricVal {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.metricLbl {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+  margin-top: 2px;
+}
+
+/* ── Bullets ── */
+.bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bulletItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13.5px;
+  color: var(--text-body);
+  line-height: 1.6;
+}
+
+.bulletDot {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.6;
+  flex-shrink: 0;
+}
+
+.bulletText {
+  flex: 1;
+}
+
+/* ── Divider between jobs ── */
+.entryDivider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--divider);
+  margin: 36px 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 860px) {
+  .entry {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .leftCol {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .companyBadge {
+    margin-top: 0;
+  }
+
+  .metricsBox {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .metricCell {
+    padding: 8px 10px;
+    align-items: center;
+  }
+
+  .metricVal {
+    font-size: 14px;
+  }
+
+  .metricLbl {
+    font-size: 9px;
+  }
+}

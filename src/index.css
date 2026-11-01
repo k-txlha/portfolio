@@ -1,0 +1,170 @@
+/* ── Design tokens strictly matched to Portfolio 2 ── */
+:root {
+  /* Dark Mode (Default) */
+  --bg: #080808;
+  --surface: #0d0d0d;
+  --surface-box: #0e0e0e;
+  --surface-card: #141414;
+  --grid-line: rgba(255, 255, 255, 0.038);
+  --text-primary: #f2f2f2;
+  --text-body: #b8b8b8;
+  --text-muted: #727272;
+  --text-muted-light: #949494;
+  --divider: #1f1f1f;
+  --border-box: #262626;
+  --border-card: #2e2e2e;
+  --accent: #a31632;
+  --accent-glow: rgba(163, 22, 50, 0.3);
+  --accent-hover: #bd1e3d;
+
+  /* Typography */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "IBM Plex Mono", "SF Mono", Consolas, Menlo, monospace;
+
+  /* Layout — exactly 880px centered content width as in Portfolio 2 */
+  --container-width: 880px;
+  --col-left: 170px;
+  --col-gap: 34px;
+  --section-spacing: 96px;
+
+  /* Grid */
+  --grid-size: 24px;
+}
+
+/* Light Mode (Engineering Paper / Clean Editorial) */
+:root[data-theme="light"] {
+  --bg: #f8f7f4;
+  --surface: #ffffff;
+  --surface-box: #edebe4;
+  --surface-card: #ffffff;
+  --grid-line: rgba(0, 0, 0, 0.05);
+  --text-primary: #121212;
+  --text-body: #404040;
+  --text-muted: #808080;
+  --text-muted-light: #555555;
+  --divider: #dedbd3;
+  --border-box: #d4d0c7;
+  --border-card: #dedbd3;
+  --accent: #8f1730;
+  --accent-glow: rgba(143, 23, 48, 0.18);
+  --accent-hover: #aa1d3a;
+}
+
+/* ── Reset ── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg);
+  color: var(--text-body);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg);
+  color: var(--text-body);
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* ── Full-page square grid ── */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size);
+  transition: background-image 0.25s ease;
+}
+
+/* ── Content container ── */
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+.portfolio-container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--divider);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* ── Selection ── */
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ── Links ── */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.15s ease, opacity 0.15s ease;
+}
+
+a:hover {
+  color: var(--text-primary);
+}
+
+/* ── Focus ── */
+:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Responsive adjustments ── */
+@media (max-width: 860px) {
+  :root {
+    --col-left: 100%;
+    --col-gap: 16px;
+    --section-spacing: 64px;
+  }
+  .portfolio-container {
+    padding: 0 16px;
+  }
+}
