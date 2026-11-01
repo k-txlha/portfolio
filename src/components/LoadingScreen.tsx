@@ -6,11 +6,11 @@ export default function LoadingScreen() {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    const leaveTimer = window.setTimeout(() => setIsLeaving(true), 1400);
+    const leaveTimer = window.setTimeout(() => setIsLeaving(true), 2100);
     const removeTimer = window.setTimeout(() => {
       document.documentElement.classList.remove("is-loading");
       setIsVisible(false);
-    }, 1900);
+    }, 2600);
 
     return () => {
       window.clearTimeout(leaveTimer);

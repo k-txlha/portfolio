@@ -130,7 +130,7 @@
   background: var(--accent);
   transform: scaleX(0);
   transform-origin: left;
-  animation: loadProgress 1.4s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  animation: loadProgress 2.1s cubic-bezier(0.65, 0, 0.35, 1) forwards;
 }
 
 .footerNote {
