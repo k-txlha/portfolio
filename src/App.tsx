@@ -11,15 +11,17 @@ export default function App() {
   return (
     <>
       <LoadingScreen />
-      <SiteHeader />
-      <main>
-        <HeroSection />
-        <ExperienceSection />
-        <ProjectsSection />
-        <ToolkitSection />
-        <EducationSection />
-        <ContactFooter />
-      </main>
+      <div className="pageContent">
+        <SiteHeader />
+        <main>
+          <HeroSection />
+          <ExperienceSection />
+          <ProjectsSection />
+          <ToolkitSection />
+          <EducationSection />
+          <ContactFooter />
+        </main>
+      </div>
     </>
   );
 }

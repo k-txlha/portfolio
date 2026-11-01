@@ -7,7 +7,10 @@ export default function LoadingScreen() {
 
   useEffect(() => {
     const leaveTimer = window.setTimeout(() => setIsLeaving(true), 1400);
-    const removeTimer = window.setTimeout(() => setIsVisible(false), 1900);
+    const removeTimer = window.setTimeout(() => {
+      document.documentElement.classList.remove("is-loading");
+      setIsVisible(false);
+    }, 1900);
 
     return () => {
       window.clearTimeout(leaveTimer);
